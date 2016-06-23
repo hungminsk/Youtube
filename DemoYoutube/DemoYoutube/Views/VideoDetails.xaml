@@ -3,37 +3,97 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DemoYoutube.Views.VideoDetails">
   <StackLayout Orientation="Vertical"
-                         Padding="10,10,10,20">
-    <Label Text="{Binding ChannelTitle}"
-           TextColor="Maroon"
-           FontSize="22" />
-    <StackLayout Orientation="Horizontal">
-      <Label Text="{Binding ViewCount, StringFormat='{0:n0} views'}"
-             TextColor="#0D47A1"
-             FontSize="14" />
-      <Label Text="{Binding LikeCount, StringFormat='{0:n0} likes'}"
-             TextColor="#2196F3"
-             FontSize="14" />
-      <Label Text="{Binding DislikeCount, StringFormat='{0:n0} dislikes'}"
-               TextColor="#0D47A1"
-               FontSize="14" />
-    </StackLayout>
-    <StackLayout Orientation="Horizontal"
-                 TranslationY="-7">
-      <Label Text="{Binding FavoriteCount, StringFormat='{0:n0} favorites'}"
-            TextColor="#2196F3"
-            FontSize="14" />
-      <Label Text="{Binding CommentCount, StringFormat='{0:n0} comments'}"
-             TextColor="#0D47A1"
-             FontSize="14" />
-    </StackLayout>
-    <Label Text="{Binding Title}"
-           TextColor="Black"
-           FontSize="16" />
-    <Image Source="{Binding HighThumbnailUrl}"
-           HeightRequest="200" />
-    <Label Text="{Binding Description}"
-           TextColor="Gray"
-           FontSize="14" />
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand"
+      Padding="10,40,10,30"
+      Spacing="10">
+
+
+    <Grid Padding="0,0.333,0,-0.333">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="169*"/>
+        <ColumnDefinition Width="60*"/>
+        <ColumnDefinition Width="173*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="123*"/>
+        <RowDefinition Height="60*"/>
+        <RowDefinition Height="122*"/>
+        <RowDefinition Height="338*"/>
+      </Grid.RowDefinitions>
+      <Image Source="{Binding HighThumbnailUrl}" Aspect="Fill" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+      <Image HorizontalOptions="Start" HeightRequest="60"  VerticalOptions="Start" WidthRequest="60" Grid.Column="1" Grid.Row="1">
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource">
+            <OnPlatform.iOS>ic_play_circle_filled_white_24dp.png</OnPlatform.iOS>
+            <OnPlatform.Android>ic_play_circle_filled_white_24dp.png</OnPlatform.Android>
+          </OnPlatform>
+        </Image.Source>
+      </Image>
+      <ScrollView HorizontalOptions="Start" HeightRequest="350" Padding="0" Grid.Row="3" VerticalOptions="Start" WidthRequest="400" Grid.ColumnSpan="3">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="258*"/>
+          </Grid.RowDefinitions>
+          <Label HorizontalOptions="Start"  TextColor="Black" Text="{Binding Title}" FontSize="16" VerticalOptions="Start" Grid.ColumnSpan="4" HeightRequest="40" WidthRequest="380"/>
+          <Label HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding ViewCount, StringFormat='{0:n0} views'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="1" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding LikeCount, StringFormat='{0:n0} likes'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="2" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding DislikeCount, StringFormat='{0:n0} dislikes'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="3" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding CommentCount, StringFormat='{0:n0} comments'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label HorizontalOptions="Start"  Grid.Row="2" Text="{Binding Description}"  VerticalOptions="Start" Grid.ColumnSpan="4" WidthRequest="380"/>
+        </Grid>
+      </ScrollView>
+      
+    </Grid>
+    
+    
+    
+    <!--<Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="250*"/>
+        <RowDefinition Height="280*"/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Source="{Binding HighThumbnailUrl}" Aspect="Fill"/>
+      <Image Grid.Row="0" HeightRequest="60" WidthRequest="60">
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource">
+            <OnPlatform.iOS>ic_play_circle_filled_white_24dp.png</OnPlatform.iOS>
+            <OnPlatform.Android>ic_play_circle_filled_white_24dp.png</OnPlatform.Android>
+          </OnPlatform>
+        </Image.Source>
+      </Image>
+      <ScrollView HorizontalOptions="Start" HeightRequest="350" Padding="0" Grid.Row="1" VerticalOptions="Start" WidthRequest="400" Grid.RowSpan="2">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="200*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="258*"/>
+          </Grid.RowDefinitions>
+          <Label HorizontalOptions="Start"  TextColor="Black" Text="{Binding Title}" FontSize="16" VerticalOptions="Start" Grid.ColumnSpan="4" HeightRequest="40" WidthRequest="380"/>
+          <Label HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding ViewCount, StringFormat='{0:n0} views'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="1" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding LikeCount, StringFormat='{0:n0} likes'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="2" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding DislikeCount, StringFormat='{0:n0} dislikes'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label Grid.Column="3" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding CommentCount, StringFormat='{0:n0} comments'}" VerticalOptions="Start" WidthRequest="80"/>
+          <Label HorizontalOptions="Start"  Grid.Row="2" Text="{Binding Description}"  VerticalOptions="Start" Grid.ColumnSpan="4" WidthRequest="380"/>
+        </Grid>
+      </ScrollView>
+    </Grid>-->
   </StackLayout>
 </ContentPage>

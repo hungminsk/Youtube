@@ -21,8 +21,9 @@ namespace DemoYoutube.Views
         {
             InfiniteListView item = sender as InfiniteListView;
             YoutubeItem youtube = item.SelectedItem as YoutubeItem;
-
-            Navigation.PushAsync(new VideoView());
+            VideoDetails detail = new VideoDetails();
+            detail.BindingContext = youtube;
+            Navigation.PushAsync(detail);
         }
     }
 }

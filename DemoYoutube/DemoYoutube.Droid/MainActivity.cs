@@ -16,7 +16,7 @@ namespace DemoYoutube.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
 
             base.OnCreate(bundle);
 
