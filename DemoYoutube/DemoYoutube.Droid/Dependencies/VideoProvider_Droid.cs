@@ -13,10 +13,10 @@ using DemoYoutube.Common;
 using Xamarin.Forms;
 using DemoYoutube.Droid.Dependencies;
 
-[assembly: Dependency(typeof(VideoProvider))]
+[assembly: Dependency(typeof(VideoProvider_Droid))]
 namespace DemoYoutube.Droid.Dependencies
 {
-    public class VideoProvider : IVideoProvider
+    public class VideoProvider_Droid : IVideoProvider
     {
         public void PlayVideo(string path)
         {

@@ -89,11 +89,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dependencies\CameraProvider.cs" />
-    <Compile Include="Dependencies\VideoProvider.cs" />
+    <Compile Include="Dependencies\VideoProvider_iOS.cs" />
+    <Compile Include="Dependencies\VideoViewController.cs" />
+    <Compile Include="Dependencies\VideoViewController.designer.cs">
+      <DependentUpon>VideoViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\Camera.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="app.config" />
+    <InterfaceDefinition Include="Dependencies\VideoViewController.xib" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
