@@ -12,20 +12,20 @@
     <Grid Padding="0,0.333,0,-0.333">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="169*"/>
-        <ColumnDefinition Width="60*"/>
+        <ColumnDefinition Width="100*"/>
         <ColumnDefinition Width="173*"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
         <RowDefinition Height="123*"/>
-        <RowDefinition Height="60*"/>
+        <RowDefinition Height="100*"/>
         <RowDefinition Height="122*"/>
         <RowDefinition Height="338*"/>
       </Grid.RowDefinitions>
       <Image Source="{Binding HighThumbnailUrl}" Aspect="Fill" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
-      <Image HorizontalOptions="Start" HeightRequest="60"  VerticalOptions="Start" WidthRequest="60" Grid.Column="1" Grid.Row="1">
+      <Image x:Name="btnPlay" HorizontalOptions="Start" HeightRequest="100"  VerticalOptions="Start" WidthRequest="100" Grid.Column="1" Grid.Row="1">
         <Image.Source>
           <OnPlatform x:TypeArguments="ImageSource">
-            <OnPlatform.iOS>ic_play_circle_filled_white_24dp.png</OnPlatform.iOS>
+            <OnPlatform.iOS>Assets/ic_play_circle_filled_white_24dp.png</OnPlatform.iOS>
             <OnPlatform.Android>ic_play_circle_filled_white_24dp.png</OnPlatform.Android>
           </OnPlatform>
         </Image.Source>

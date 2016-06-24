@@ -33,7 +33,7 @@
                 <Image HeightRequest="10" Grid.Row="2" Grid.Column="2">
                   <Image.Source>
                     <OnPlatform  x:TypeArguments="ImageSource">
-                      <OnPlatform.iOS>ic_today_black_18dp.png</OnPlatform.iOS>
+                      <OnPlatform.iOS>Assets/ic_today_black_18dp.png</OnPlatform.iOS>
                       <OnPlatform.Android>ic_today_black_18dp.png</OnPlatform.Android>
                     </OnPlatform>
                   </Image.Source>

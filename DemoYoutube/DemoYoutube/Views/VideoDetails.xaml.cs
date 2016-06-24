@@ -13,6 +13,18 @@ namespace DemoYoutube.Views
         public VideoDetails()
         {
             InitializeComponent();
+            //Creating TapGestureRecognizers  
+            var tapImage = new TapGestureRecognizer();
+            //Binding events  
+            tapImage.Tapped += tapImage_Tapped;
+            //Associating tap events to the image buttons  
+            btnPlay.GestureRecognizers.Add(tapImage);
+        }
+
+        void tapImage_Tapped(object sender, EventArgs e)
+        {
+            // handle the tap  
+            DisplayAlert("Alert", "This is an image button", "OK");
         }
     }
 }
