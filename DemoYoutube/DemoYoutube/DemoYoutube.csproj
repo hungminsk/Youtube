@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Core\InfiniteListView.cs" />
+    <Compile Include="Core\IPhotoManager.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Models\YoutubeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
