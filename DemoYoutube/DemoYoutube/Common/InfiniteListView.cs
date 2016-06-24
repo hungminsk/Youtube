@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace DemoYoutube.Core
+namespace DemoYoutube.Common
 {
     /// <summary>
     /// A simple listview that exposes a bindable command to allow infinite loading behaviour.

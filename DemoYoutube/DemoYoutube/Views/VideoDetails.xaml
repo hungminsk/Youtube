@@ -7,8 +7,6 @@
       HorizontalOptions="FillAndExpand"
       Padding="10,40,10,30"
       Spacing="10">
-
-
     <Grid Padding="0,0.333,0,-0.333">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="169*"/>
@@ -53,47 +51,5 @@
       </ScrollView>
       
     </Grid>
-    
-    
-    
-    <!--<Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="250*"/>
-        <RowDefinition Height="280*"/>
-      </Grid.RowDefinitions>
-      <Image Grid.Row="0" Source="{Binding HighThumbnailUrl}" Aspect="Fill"/>
-      <Image Grid.Row="0" HeightRequest="60" WidthRequest="60">
-        <Image.Source>
-          <OnPlatform x:TypeArguments="ImageSource">
-            <OnPlatform.iOS>ic_play_circle_filled_white_24dp.png</OnPlatform.iOS>
-            <OnPlatform.Android>ic_play_circle_filled_white_24dp.png</OnPlatform.Android>
-          </OnPlatform>
-        </Image.Source>
-      </Image>
-      <ScrollView HorizontalOptions="Start" HeightRequest="350" Padding="0" Grid.Row="1" VerticalOptions="Start" WidthRequest="400" Grid.RowSpan="2">
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="200*"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="258*"/>
-          </Grid.RowDefinitions>
-          <Label HorizontalOptions="Start"  TextColor="Black" Text="{Binding Title}" FontSize="16" VerticalOptions="Start" Grid.ColumnSpan="4" HeightRequest="40" WidthRequest="380"/>
-          <Label HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding ViewCount, StringFormat='{0:n0} views'}" VerticalOptions="Start" WidthRequest="80"/>
-          <Label Grid.Column="1" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding LikeCount, StringFormat='{0:n0} likes'}" VerticalOptions="Start" WidthRequest="80"/>
-          <Label Grid.Column="2" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding DislikeCount, StringFormat='{0:n0} dislikes'}" VerticalOptions="Start" WidthRequest="80"/>
-          <Label Grid.Column="3" HorizontalOptions="Start"  Grid.Row="1"  Text="{Binding CommentCount, StringFormat='{0:n0} comments'}" VerticalOptions="Start" WidthRequest="80"/>
-          <Label HorizontalOptions="Start"  Grid.Row="2" Text="{Binding Description}"  VerticalOptions="Start" Grid.ColumnSpan="4" WidthRequest="380"/>
-        </Grid>
-      </ScrollView>
-    </Grid>-->
   </StackLayout>
 </ContentPage>

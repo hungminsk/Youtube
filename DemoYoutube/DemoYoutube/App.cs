@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DemoYoutube.Core;
+using DemoYoutube.Common;
 using DemoYoutube.ViewModels;
 using DemoYoutube.Views;
 using Xamarin.Forms;

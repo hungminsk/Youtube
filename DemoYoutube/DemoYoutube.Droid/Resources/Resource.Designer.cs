@@ -3727,6 +3727,9 @@ namespace DemoYoutube.Droid
 			// aapt resource value: 0x7f0b0013
 			public const int useLogo = 2131427347;
 			
+			// aapt resource value: 0x7f0b0083
+			public const int videoView1 = 2131427459;
+			
 			// aapt resource value: 0x7f0b0009
 			public const int view_offset_helper = 2131427337;
 			
@@ -3929,6 +3932,9 @@ namespace DemoYoutube.Droid
 			
 			// aapt resource value: 0x7f030031
 			public const int toolbar = 2130903089;
+			
+			// aapt resource value: 0x7f030032
+			public const int Video = 2130903090;
 			
 			static Layout()
 			{

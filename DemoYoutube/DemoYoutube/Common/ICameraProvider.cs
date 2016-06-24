@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoYoutube.Core
+namespace DemoYoutube.Common
 {
-    public interface IPhotoManager
+    public interface ICameraProvider
     {
-        void TakePhoto();
+        Task<CameraResult> TakePictureAsync();
     }
 }

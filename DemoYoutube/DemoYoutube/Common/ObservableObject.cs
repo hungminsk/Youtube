@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoYoutube.Core
+namespace DemoYoutube.Common
 {
     public abstract class ObservableObject : INotifyPropertyChanged
     {
