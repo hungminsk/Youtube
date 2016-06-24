@@ -5,7 +5,7 @@
              x:Class="DemoYoutube.Views.HomeScreen">
   <StackLayout Padding="5,10"
                BackgroundColor="White">
-    
+    <SearchBar x:Name="searchBar" SearchButtonPressed="SearchBar_SearchButtonPressed" TextColor="Black" Placeholder="Search"></SearchBar>
     <core:InfiniteListView x:Name="lsView" ItemsSource="{Binding YoutubeItems}"
 													  LoadMoreCommand="{Binding LoadVideosCommand}"
                             HasUnevenRows="True">

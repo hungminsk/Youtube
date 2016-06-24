@@ -22,7 +22,7 @@ namespace DemoYoutube.ViewModels
         private const string ApiKey = "AIzaSyA0cM93qUJdc9Ws2ddbIlSVKdsh5NRbpB8";
         private static string NextToken = "";
 
-        // doc : https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.videos.list 
+        // doc : https://developers.google.com/youtube/v3/docs/search/list#parameters 
         private readonly string apiUrlForChannel = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=20&channelId="
                                                    + "UCwq95KcdMM5BRMwYsJX4iHg"
                                                    //+ "Your_ChannelId"
@@ -45,9 +45,22 @@ namespace DemoYoutube.ViewModels
                                                          + "&key="
                                                          + ApiKey;
 
+        private string SearchText { get; set; }
         private ObservableCollection<YoutubeItem> _youtubeItem;
 
         public YoutubeViewModel()
+        {
+            Init();
+        }
+
+        public YoutubeViewModel(string searchText)
+        {
+            this.SearchText = searchText;
+
+            Init();
+        }
+
+        private void Init()
         {
             LoadVideosCommand = new Command(LoadYoutubeItems);
 
@@ -73,6 +86,8 @@ namespace DemoYoutube.ViewModels
         {
             var httpClient = new HttpClient();
             var url = string.Format(apiUrlForChannel, NextToken);
+            url = (string.IsNullOrEmpty(SearchText) ? url : $"{url}&q={SearchText}");
+
             var json = await httpClient.GetStringAsync(url);
 
             var videoIds = new List<string>();
