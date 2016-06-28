@@ -157,6 +157,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\YoutubePlayer_iOS\YoutubePlayer_iOS.csproj">
+      <Project>{7fce6bde-cd0f-4483-bb56-b50a21e3ccd1}</Project>
+      <Name>YoutubePlayer_iOS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoYoutube\DemoYoutube.csproj">
       <Project>{8DA2E411-50F9-4D89-95BF-03F97D78F0C2}</Project>
       <Name>DemoYoutube</Name>
