@@ -32,7 +32,7 @@
                 <Label  Grid.Row="2" Text="{Binding PublishedAt}" Grid.Column="1" FontSize="9.333"/>
                 <Image HeightRequest="10" Grid.Row="2" Source="ic_today_black_18dp.png"/>
                 <Label  Grid.Row="2" Text="{Binding ViewCount}" Grid.Column="3" FontSize="9.333"/>
-                <Image HeightRequest="10" Grid.Row="2" Grid.Column="2" ImageSource="ic_today_black_18dp.png" />
+                <Image HeightRequest="10" Grid.Row="2" Grid.Column="2" Source="ic_today_black_18dp.png" />
               </Grid>
             </StackLayout>
           </ViewCell>

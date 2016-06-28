@@ -112,13 +112,13 @@ namespace DemoYoutube.ViewModels
                     videoIds.Add(item.Value<JObject>("id")?.Value<string>("videoId"));
                 }
 
-                var Items = await GetVideosDetailsAsync(videoIds);
-                foreach (var item in Items)
+                var Videos = await GetVideosDetailsAsync(videoIds);
+                foreach (var video in Videos)
                 {
-                    YoutubeItems.Add(item);
+                    YoutubeItems.Add(video);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // ignored
             }

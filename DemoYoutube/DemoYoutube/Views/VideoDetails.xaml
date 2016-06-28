@@ -21,7 +21,7 @@
       </Grid.RowDefinitions>
       <Image Source="{Binding HighThumbnailUrl}" Aspect="Fill" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
       <Image x:Name="btnPlay" HorizontalOptions="Start" HeightRequest="100" 
-             VerticalOptions="Start" WidthRequest="100" Grid.Column="1" Grid.Row="1" ImageSource="ic_play_circle_filled_white_24dp.png" />
+             VerticalOptions="Start" WidthRequest="100" Grid.Column="1" Grid.Row="1" Source="ic_play_circle_filled_white_24dp.png" />
       <ScrollView HorizontalOptions="Start" HeightRequest="350" Padding="0" Grid.Row="3" VerticalOptions="Start" WidthRequest="400" Grid.ColumnSpan="3">
         <Grid>
           <Grid.ColumnDefinitions>
