@@ -21,31 +21,28 @@ namespace DemoYoutube.Views
         private void SearchBar_SearchButtonPressed(object sender, EventArgs e)
         {
             var searchText = searchBar.Text.Trim();
-            if (!string.IsNullOrEmpty(searchText))
-            {
-                var sampleViewModel = new YoutubeViewModel(searchText);
+            if (string.IsNullOrEmpty(searchText)) return;
+            var sampleViewModel = new YoutubeViewModel(searchText);
 
-                BindingContext = sampleViewModel;
-            }
+            BindingContext = sampleViewModel;
         }
 
         private void LsView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            InfiniteListView item = sender as InfiniteListView;
-            YoutubeItem youtube = item.SelectedItem as YoutubeItem;
-            VideoDetails detail = new VideoDetails();
-            detail.BindingContext = youtube;
+            var item = sender as InfiniteListView;
+            if (item == null) return;
+            var youtube = item.SelectedItem as YoutubeItem;
+            var detail = new VideoDetails {BindingContext = youtube};
             Navigation.PushAsync(detail);
         }
 
         private void SearchChange(object sender, SelectedItemChangedEventArgs e)
         {
-            InfiniteListView item = sender as InfiniteListView;
-            YoutubeItem youtube = item.SelectedItem as YoutubeItem;
-            VideoDetails detail = new VideoDetails();
-            detail.BindingContext = youtube;
+            var item = sender as InfiniteListView;
+            if (item == null) return;
+            var youtube = item.SelectedItem as YoutubeItem;
+            var detail = new VideoDetails {BindingContext = youtube};
             Navigation.PushAsync(detail);
         }
-
     }
 }

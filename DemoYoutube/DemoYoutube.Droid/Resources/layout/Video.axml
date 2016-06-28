@@ -5,8 +5,16 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <VideoView
+<!--<VideoView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/videoView1" />
+        android:id="@+id/videoView1" />-->
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <!--<SurfaceView
+        android:id="@+id/sfView"
+        android:layout_height="1dp"
+        android:layout_width="1dp" />-->
 </LinearLayout>

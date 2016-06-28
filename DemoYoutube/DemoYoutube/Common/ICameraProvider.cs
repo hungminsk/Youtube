@@ -8,6 +8,6 @@ namespace DemoYoutube.Common
 {
     public interface ICameraProvider
     {
-        Task<CameraResult> TakePictureAsync();
+        Task<bool> TakePictureAsync();
     }
 }

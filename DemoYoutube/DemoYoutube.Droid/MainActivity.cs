@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
+using DemoYoutube.Droid.Dependencies;
 
 namespace DemoYoutube.Droid
 {
@@ -17,7 +18,6 @@ namespace DemoYoutube.Droid
         protected override void OnCreate(Bundle bundle)
         {
             FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);

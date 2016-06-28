@@ -14,17 +14,14 @@ namespace DemoYoutube.iOS.Dependencies
 {
     public class VideoProvider_iOS : IVideoProvider
     {
-        public void PlayVideo(string path)
+        public void PlayVideo(string videoId)
         {
-
-            UIWindow window = UIApplication.SharedApplication.KeyWindow;
-            UIViewController viewController = window.RootViewController;
-            if (viewController != null)
-            {
-                while (viewController.PresentedViewController != null)
-                    viewController = viewController.PresentedViewController;
-                viewController.PresentViewController(new VideoViewController(path), true, null);
-            }
+            var window = UIApplication.SharedApplication.KeyWindow;
+            var viewController = window.RootViewController;
+            if (viewController == null) return;
+            while (viewController.PresentedViewController != null)
+                viewController = viewController.PresentedViewController;
+            viewController.PresentViewController(new VideoViewController(videoId), true, null);
         }
     }
 }

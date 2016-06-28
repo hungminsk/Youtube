@@ -1,30 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using DemoYoutube.Common;
-using Xamarin.Forms;
 using DemoYoutube.Droid.Dependencies;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(VideoProvider_Droid))]
+
 namespace DemoYoutube.Droid.Dependencies
 {
     public class VideoProvider_Droid : IVideoProvider
     {
-        public void PlayVideo(string path)
+        public void PlayVideo(string videoId)
         {
-            var intent = new Intent(Xamarin.Forms.Forms.Context, typeof(VideoProviderActivity));
+            var intent = new Intent(Forms.Context, typeof(VideoProviderActivity));
             var bundle = new Bundle();
-            bundle.PutString("url", path);
-            intent.PutExtras(bundle); ;
-            Xamarin.Forms.Forms.Context.StartActivity(intent);
+            bundle.PutString("VideoID", videoId);
+            intent.PutExtras(bundle);
+            Forms.Context.StartActivity(intent);
         }
     }
 }

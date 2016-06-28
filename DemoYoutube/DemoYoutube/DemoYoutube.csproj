@@ -36,9 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Common\CameraResult.cs" />
     <Compile Include="Common\InfiniteListView.cs" />
-    <Compile Include="Common\ICameraProvider.cs" />
     <Compile Include="Common\IVideoProvider.cs" />
     <Compile Include="Common\ObservableObject.cs" />
     <Compile Include="Models\YoutubeItem.cs" />

@@ -28,20 +28,23 @@ namespace DemoYoutube.Views
 
         void tapImage_Tapped(object sender, EventArgs e)
         {
+            
             // Take Picture with show camera app
             //DependencyService.Get<ICameraProvider>().TakePictureAsync();
             var item = BindingContext as YoutubeItem;
 
-            IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls($"https://www.youtube.com/watch?v={item.VideoId}");
-            VideoInfo video = videoInfos.First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
+            //IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls($"https://www.youtube.com/watch?v={item.VideoId}");
+            //VideoInfo video = videoInfos.First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
 
-            if (video.RequiresDecryption)
-            {
-                DownloadUrlResolver.DecryptDownloadUrl(video);
-            }
+            //if (video.RequiresDecryption)
+            //{
+            //    DownloadUrlResolver.DecryptDownloadUrl(video);
+            //}
 
+            //DependencyService.Get<ICameraProvider>().TakePictureAsync();
             // Play video.
-            DependencyService.Get<IVideoProvider>().PlayVideo(video.DownloadUrl);
+            DependencyService.Get<IVideoProvider>().PlayVideo(item.VideoId);
+
         }
     }
 }

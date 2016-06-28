@@ -1,59 +1,50 @@
-using System;
-
-using Android.Content;
 using DemoYoutube.Droid.Dependencies;
 using Xamarin.Forms;
 using DemoYoutube.Common;
 using System.Threading.Tasks;
-using Android.Provider;
-using Java.IO;
-using Android.App;
+using Android.Hardware;
+using Android.Views;
 
 [assembly: Dependency(typeof(CameraProvider))]
 namespace DemoYoutube.Droid.Dependencies
 {
     public class CameraProvider : ICameraProvider
     {
-        private static File file;
-        private static File pictureDirectory;
-        private static TaskCompletionSource<CameraResult> tcs;
-
-        public Task<CameraResult> TakePictureAsync()
+        public Task<bool> TakePictureAsync()
         {
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            pictureDirectory = new File(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures), "Youtube");
+            Camera camera = Camera.Open(FindFrontFacingCameraID());
 
-            if(!pictureDirectory.Exists())
+            if (camera != null)
             {
-                pictureDirectory.Mkdirs();
+                SurfaceView sfview = new SurfaceView(Forms.Context);
+                sfview.LayoutParameters = new ViewGroup.LayoutParams(1, 1);
+                camera.SetPreviewDisplay(sfview.Holder);
+                camera.StartPreview();
+                camera.TakePicture(null, null, new PictureCallback());
+                return new Task<bool>(() => true);
             }
-
-            file = new File(pictureDirectory, string.Format("photo_{0}.jpg", Guid.NewGuid()));
-            intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
-
-            var activity = (Activity)Forms.Context;
-            activity.StartActivityForResult(intent, 0);
-            tcs = new TaskCompletionSource<CameraResult>();
-
-            return tcs.Task;
+            else
+            {
+                return new Task<bool>(() => false);
+            }
         }
 
-        public static void OnResult(Result resultCode)
+        private int FindFrontFacingCameraID()
         {
-            if(resultCode == Result.Canceled)
+            int cameraId = -1;
+            // Search for the front facing camera
+            int numberOfCameras = Camera.NumberOfCameras;
+            for (int i = 0; i < numberOfCameras; i++)
             {
-                tcs.TrySetResult(null);
+                Camera.CameraInfo info = new Camera.CameraInfo();
+                Camera.GetCameraInfo(i, info);
+                if (info.Facing == Camera.CameraInfo.CameraFacingFront)
+                {
+                    cameraId = i;
+                    break;
+                }
             }
-
-            if(resultCode != Result.Ok)
-            {
-                tcs.TrySetException(new Exception("Unexpected error!"));
-            }
-
-            CameraResult res = new CameraResult();
-            res.Picture = ImageSource.FromFile(file.Path);
-            res.FilePath = file.Path;
-            tcs.TrySetResult(res);
+            return cameraId;
         }
     }
 }

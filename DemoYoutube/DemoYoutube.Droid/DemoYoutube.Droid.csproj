@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
@@ -97,7 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dependencies\CameraProvider.cs" />
+    <Compile Include="Dependencies\PictureCallback.cs" />
     <Compile Include="Dependencies\VideoProviderActivity.cs" />
     <Compile Include="Dependencies\VideoProvider_Droid.cs" />
     <Compile Include="MainActivity.cs" />
@@ -129,6 +129,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\YoutubePlayer\YoutubePlayer.csproj">
+      <Project>{B09A5966-F50F-4F3D-B5C4-1483F1DAECAC}</Project>
+      <Name>YoutubePlayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DemoYoutube\DemoYoutube.csproj">
       <Project>{8DA2E411-50F9-4D89-95BF-03F97D78F0C2}</Project>
       <Name>DemoYoutube</Name>
@@ -172,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_play_circle_filled_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="Resources\values\String.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.0.6482\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
